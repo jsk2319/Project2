@@ -8,20 +8,30 @@ public class Film {
         filmYear = 0;
         directorName = "";
     }
+    public Film(String newName, String newDName, int newFYear){
+        filmName = newName;
+        directorName = newDName;
+        filmYear = newFYear;
+    }
+
     public void setFilmName(String newFilmName) {
         filmName = newFilmName;
 
     }
+
     public String getFilmName() {
         return filmName;
     }
+
     public void setDirectorName(String newDirectorName) {
         directorName = newDirectorName;
 
     }
+
     public String getDirectorName() {
         return directorName;
     }
+
     public void setFilmYear(int newFilmYear) {
         if ((newFilmYear >= 1890) && (newFilmYear <= 2019)) {
             filmYear = newFilmYear;
@@ -29,15 +39,29 @@ public class Film {
             System.out.println("Year isn't possible.");
         }
     }
-    public int getFilmYear(Film f) {
+
+    public int getFilmYear() {
         return filmYear;
     }
 
-    public boolean equalsMethod(Object Film) {
-        boolean equalsMethod = false;
-        if(f.filmName){
+    public boolean equalsMethod(Film other) {
 
+        if (filmName.equals(other.getFilmName())) {
+
+            if (directorName.equals(other.getDirectorName())) {
+
+                if (filmYear == other.getFilmYear()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
         }
-    }
 
+    }
 }
